@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/api/webhook", (req, res) => {
-  console.log('req.headers----', req.headers);
+  console.log('req.headers:', req.headers);
   if (req.headers["x-github-event"] === "push") {
     const payload = req.body;
     const repo = payload.repository.full_name;

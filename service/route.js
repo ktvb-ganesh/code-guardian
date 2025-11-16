@@ -1,16 +1,18 @@
-import express from 'express';
+import express from "express";
+const router = express.Router();
 
-const app = express.Router();
-
-app.get('/', (req, res) => {
-  res.send('you hit the route running on port 3000');
+router.get("/", (req, res) => {
+  res.send("Router working");
 });
-app.post("/api/webhook", (req, res) => {
-  console.log("🔔 Webhook received:");
-  console.log(req.body);
+
+router.post("/api/webhook", (req, res) => {
+  console.log("🔔 Webhook received");
+
+  console.log("Headers:", req.headers["x-github-event"]);
+  console.log("Body keys:", Object.keys(req.body));
 
   res.status(200).send("OK");
 });
 
 
-export default app;
+export default router;

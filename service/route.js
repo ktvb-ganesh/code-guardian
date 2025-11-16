@@ -6,10 +6,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/api/webhook", (req, res) => {
-  console.log("🔔 Webhook received");
-
-  console.log("Headers:", req.headers["x-github-event"]);
   console.log("Body keys:", Object.keys(req.body));
+  console.log('body-------------->', JSON.stringify(req, null, 2));
 
   res.status(200).send("OK");
 });

@@ -3,16 +3,9 @@ import router from "./route.js";
 
 const app = express();
 
-// parse JSON
 app.use(express.json({ limit: "5mb" }));
-
-// parse urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// log for debugging
-console.log("Mounting routes...");
-
-// mount router
 app.use("/", router);
 
 app.listen(3000, () => {
